@@ -1,10 +1,16 @@
 import { useState } from "react";
 
 export default function App() {
-  const [formData, setFormData] = useState({ firstName: "", lastName: "",comment:"" });
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    comment: "",
+    isReady: false,
+  });
   function handleChange(event) {
+    const { name, value, type, checked } = event.target;
     setFormData((prevData) => {
-      return { ...prevData, [event.target.name]: event.target.value };
+      return { ...prevData, [name]: type === "checkbox" ? checked : value };
     });
     console.log(formData);
   }
@@ -33,6 +39,14 @@ export default function App() {
           name="comment"
           value={formData.comment}
         />
+        <input
+          type="checkbox"
+          id="isReady"
+          onChange={handleChange}
+          checked={formData.isReady}
+          name="isReady"
+        />
+        <label htmlFor="isReady"> isReady ?</label>
       </form>
       <p>
         Hello,{formData.firstName} {formData.lastName}
