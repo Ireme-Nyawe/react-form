@@ -75,6 +75,14 @@ export default function App() {
           name="employment"
         />
         <label htmlFor="unEmployed">un-employed</label>
+        <br />
+        <label htmlFor="favColor">what is your fav color?</label>
+        <select name="" id="">
+          <option value="">red</option>
+          <option value="">red</option>
+          <option value="">red</option>
+          <option value="">red</option>
+        </select>
       </form>
       <p>
         Hello,{formData.firstName} {formData.lastName}
