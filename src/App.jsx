@@ -6,14 +6,15 @@ export default function App() {
     lastName: "",
     comment: "",
     isReady: false,
+    employment: "",
   });
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
     setFormData((prevData) => {
       return { ...prevData, [name]: type === "checkbox" ? checked : value };
     });
-    console.log(formData);
   }
+  console.log(formData);
   return (
     <>
       <form>
@@ -24,6 +25,7 @@ export default function App() {
           name="firstName"
           value={formData.firstName}
         />
+        <br />
         <input
           type="text"
           placeholder="First Name"
@@ -31,7 +33,7 @@ export default function App() {
           name="lastName"
           value={formData.lastName}
         />
-
+        <br />
         <textarea
           type="text"
           placeholder="comment"
@@ -39,6 +41,7 @@ export default function App() {
           name="comment"
           value={formData.comment}
         />
+        <br />
         <input
           type="checkbox"
           id="isReady"
@@ -47,6 +50,31 @@ export default function App() {
           name="isReady"
         />
         <label htmlFor="isReady"> isReady ?</label>
+        <br />
+        <input
+          type="radio"
+          id="employed"
+          onChange={handleChange}
+          value="employed"
+          name="employment"
+        />
+        <label htmlFor="employed"> employed</label>
+        <input
+          type="radio"
+          id="selfEmployed"
+          onChange={handleChange}
+          value="selfEmployed"
+          name="employment"
+        />
+        <label htmlFor="selfEmployed"> self-employed</label>
+        <input
+          type="radio"
+          id="unEmployed"
+          onChange={handleChange}
+          value="unEmployed"
+          name="employment"
+        />
+        <label htmlFor="unEmployed">un-employed</label>
       </form>
       <p>
         Hello,{formData.firstName} {formData.lastName}
